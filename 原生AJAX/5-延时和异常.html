@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>延时和异常</title>
+    <style>
+        div {
+            width: 200px;
+            height: 100px;
+            border: solid 1px black;
+        }
+
+        button {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>click me</button>
+    <div></div>
+    <script>
+        const div = document.querySelector('div')
+        const btn = document.querySelector('button')
+        btn.addEventListener('click', () => {
+            const xhr = new XMLHttpRequest()
+            xhr.timeout = 2000
+            xhr.ontimeout = ()=>alert('网络异常，请稍后重试！')
+            xhr.onerror = ()=>alert('网络出现问题！')
+            xhr.open('GET', 'http://127.0.0.1:8000/delay')
+            xhr.send()
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        div.innerHTML = xhr.response
+                    }
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>
