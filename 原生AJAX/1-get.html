@@ -1,59 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AJAX GET请求</title>
-</head>
-<style>
+  </head>
+  <style>
     #result {
-        width: 200px;
-        height: 100px;
-        border: solid 1px black;
+      width: 200px;
+      height: 100px;
+      border: solid 1px black;
     }
 
     button {
-        width: 50px;
-        height: 50px;
+      width: 50px;
+      height: 50px;
     }
-</style>
+  </style>
 
-<body>
+  <body>
     <button>click me</button>
-    <div id='result'></div>
-</body>
-<script>
+    <div id="result"></div>
+  </body>
+  <script>
     const btn = document.querySelector('button')
     const result = document.querySelector('#result')
     btn.addEventListener('click', () => {
-        // 创建对象
-        const xhr = new XMLHttpRequest()
-        // 初始化 设置请求方法和url
-        xhr.open('GET', 'http://127.0.0.1:8000/server?a=100&b=200&c=300')
-        //发送
-        xhr.send()
-        //事件绑定 处理服务器返回的结果
-        //readystate是xhr对象中的属性
-        //0表示初始化 1表示open()结束 2表示send()结束 3表示服务器返回部分结果 4表示服务器返回全部结果
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {//判断是否返回全部结果
-                if (xhr.status >= 200 && xhr.status < 300){//判断响应状态码 2xx都是成功
-                    //处理结果 行 头 空行 体
-                    console.log(xhr.status);//状态码
-                    console.log(xhr.statusText);//状态字符串
-                    console.log(xhr.getAllResponseHeaders());//所有响应头
-                    console.log(xhr.response);//响应体
+      // 创建对象
+      const xhr = new XMLHttpRequest()
+      // 初始化 设置请求方法和url
+      xhr.open('GET', 'http://127.0.0.1:8000/server?a=100&b=200&c=300')
+      //发送
+      xhr.send()
+      //事件绑定 处理服务器返回的结果
+      //readystate是xhr对象中的属性
+      //0表示初始化 1表示open()结束 2表示send()结束 3表示服务器返回部分结果 4表示服务器返回全部结果
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          //判断是否返回全部结果
+          if (xhr.status >= 200 && xhr.status < 300) {
+            //判断响应状态码 2xx都是成功
+            //处理结果 行 头 空行 体
+            console.log(xhr.status) //状态码
+            console.log(xhr.statusText) //状态字符串
+            console.log(xhr.getAllResponseHeaders()) //所有响应头
+            console.log(xhr.response) //响应体
 
-                    result.innerHTML = xhr.response
-                }
-                    
-                    
-            }
+            result.innerHTML = xhr.response
+          }
         }
+      }
     })
-
-</script>
-
+  </script>
 </html>

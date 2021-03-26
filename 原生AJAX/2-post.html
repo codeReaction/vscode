@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AJAX POST请求</title>
     <style>
-        #result{
-            width: 200px;
-            height: 100px;
-            border: solid 1px red;
-        }
+      #result {
+        width: 200px;
+        height: 100px;
+        border: solid 1px red;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="result"></div>
     <!-- 需求：当鼠标移动到框内时向服务器请求并显示结果 -->
     <script>
-        const result = document.querySelector('#result')
-        result.addEventListener('mouseover',()=>{
-            const xhr = new XMLHttpRequest()
-            xhr.open('POST','http://127.0.0.1:8000/server')
-            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
-            xhr.setRequestHeader('name','LIHUI');
-            xhr.send('a=1&b=2&c=3');
-            // xhr.send('a:10&b:20&c:30')
-            // xhr.send('12345')
-            console.log(xhr);
-            xhr.onreadystatechange = () => {
-                if(xhr.readyState == 4){
-                    if(xhr.status >=200 && xhr.status < 300){
-                        result.innerHTML = xhr.response
-                    }
-                }
+      const result = document.querySelector('#result')
+      result.addEventListener('mouseover', () => {
+        const xhr = new XMLHttpRequest()
+        xhr.open('POST', 'http://127.0.0.1:8000/server')
+        xhr.setRequestHeader(
+          'Content-Type',
+          'application/x-www-form-urlencoded'
+        )
+        xhr.setRequestHeader('name', 'LIHUI')
+        xhr.send('a=1&b=2&c=3')
+        // xhr.send('a:10&b:20&c:30')
+        // xhr.send('12345')
+        console.log(xhr)
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState == 4) {
+            if (xhr.status >= 200 && xhr.status < 300) {
+              result.innerHTML = xhr.response
             }
-        })
+          }
+        }
+      })
     </script>
-</body>
+  </body>
 </html>

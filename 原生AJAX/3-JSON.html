@@ -1,36 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JSON on Server</title>
     <style>
-        div{
-            width: 200px;
-            height: 100px;
-            border: solid 2px blue;
-        }
+      div {
+        width: 200px;
+        height: 100px;
+        border: solid 2px blue;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div></div>
     <script>
-        div = document.querySelector('div')
-        window.onkeydown = function () {
-            const xhr = new XMLHttpRequest()
-            xhr.responseType = 'json'
-            xhr.open('GET','http://127.0.0.1:8000/json-server')
-            xhr.send()
-            xhr.onreadystatechange = function(){
-                if(xhr.readyState === 4){
-                    if(xhr.status >= 200 && xhr.status < 300){
-                        div.innerHTML = xhr.response.name
-                    }
-                }
+      div = document.querySelector('div')
+      window.onkeydown = function () {
+        const xhr = new XMLHttpRequest()
+        xhr.responseType = 'json'
+        xhr.open('GET', 'http://127.0.0.1:8000/json-server')
+        xhr.send()
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            if (xhr.status >= 200 && xhr.status < 300) {
+              div.innerHTML = xhr.response.name
             }
-            
+          }
         }
+      }
     </script>
-</body>
+  </body>
 </html>
