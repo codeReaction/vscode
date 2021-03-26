@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 200px;
+        height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#xx">xx</a>
+    <table align="center" border="1" cellpadding="100">
+      <tr>
+        <!-- 跨列横向合并，目标单元格为最左 -->
+        <td colspan="3"></td>
+        <!-- 删除横向多余的2个单元格 -->
+      </tr>
+      <tr>
+        <td></td>
+        <!-- 跨行纵向合并，目标单元格为最上 -->
+        <td rowspan="2"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <!-- 删除纵向多余的1个单元格 -->
+        <td></td>
+      </tr>
+    </table>
+    <div></div>
+    <p id="xx">xxx</p>
+  </body>
+</html>
