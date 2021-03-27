@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    
+  </head>
+  <body>
+    <!-- 父子级关系：> -->
+    <!-- div>span -->
+    <div><span></span></div>
+
+    <!-- 同胞级关系：+ -->
+    <!-- div+p -->
+    <div></div>
+
+    <!-- 带有id或者类的元素 -->
+    <!-- #id 前面不加元素类型默认为div元素-->
+    <div id="id"></div>
+    <!-- p.class -->
+    <p class="class"></p>
+
+    <!-- 自增符号$ -->
+    <!-- .index$*5 -->
+    <div class="index1"></div>
+    <div class="index2"></div>
+    <div class="index3"></div>
+    <div class="index4"></div>
+    <div class="index5"></div>
+
+    <!-- 花括号{}可添加内容 -->
+    <!-- p{lorem$}*3 -->
+    <p>lorem1</p>
+    <p>lorem2</p>
+    <p>lorem3</p>
+
+    <!-- 中括号[]可添加属性 -->
+    <!-- div[id] -->
+    <div id=""></div>
+    <!-- div[data-index=1] -->
+    <div data-index="1"></div>
+    <!-- p[id class] -->
+    <p id="" class=""></p>
+  </body>
+</html>
