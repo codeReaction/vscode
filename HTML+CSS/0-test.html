@@ -6,19 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      div {
-        /* border: 2px solid red; */
-        overflow: hidden;
-        width: 80px;
-        height: 80px;
+      ul span:nth-child(1) {
+        background-color: green;
+      }
+
+      ul *:nth-child(1) {
         background-color: pink;
-        /* white-space: normal; */
-        white-space: nowrap;
-        text-overflow: ellipsis;
+        font-size: 20px;
       }
     </style>
   </head>
   <body>
-    <div> 特斯拉全自动驾驶系统上线了，车主：堪比没统上线了统上线了统上线了</div>
+    <p>0</p>
+    <ul>
+      <span>1</span>
+      <li>2</li>
+      <li>3</li>
+      <p class="p4">4</p>
+      <p class="p5">5</p>
+    </ul>
+    <p>6</p>
   </body>
 </html>
