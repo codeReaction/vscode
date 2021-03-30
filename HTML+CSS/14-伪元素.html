@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      /* 引入字体图标 */
-      /* 字体声明 */
       @font-face {
         font-family: 'icomoon';
         src: url('fonts/icomoon/fonts/icomoon.eot?980ew5');
@@ -20,23 +18,27 @@
         font-style: normal;
         font-display: block;
       }
-      /* 光复制图标乱码不行，还需要指定乱码的font-family */
-      span {
+      .box {
+        position: relative;
+        width: 200px;
+        height: 30px;
+        border: 1px solid red;
+      }
+      .box::after {
+        position: absolute;
+        top: 5px;
+        right: 10px;
         font-family: 'icomoon';
-        /* 既然是字体，可以随意指定颜色、大小等 */
-        font-size: 200px;
-        font-style: italic;
-        color: pink;
+        /* 采用转义代码 */
+        content: '\e92a';
+        /* 采用乱码符号 */
+        /* content: ''; */
+        color: red;
+        font-size: 20px;
       }
     </style>
   </head>
   <body>
-    <!-- 从下载的字体图标包中打开demo.html，复制图标的乱码内容 -->
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
+    <div class="box"></div>
   </body>
 </html>
