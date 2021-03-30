@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+      .box1 {
+        width: 0;
+        height: 0;
+        border-top: 50px solid pink;
+        border-left: 50px solid red;
+        border-bottom: 50px solid black;
+        border-right: 50px solid green;
+      }
+      .box2 {
+        width: 0;
+        height: 0;
+        border-top: 50px solid pink;
+        border-left: 50px solid red;
+        border-bottom: 0 solid black;
+        border-right: 50px solid green;
+      }
+      .box3 {
+        width: 0;
+        height: 0;
+        border-top: 100px solid pink;
+        border-left: 50px solid red;
+        border-bottom: 0 solid black;
+        border-right: 50px solid green;
+      }
+      .box4 {
+        width: 0;
+        height: 0;
+        border-top: 100px solid pink;
+        border-left: 0 solid red;
+        border-bottom: 0 solid black;
+        border-right: 50px solid green;
+      }
+      .box5 {
+        width: 0;
+        height: 0;
+        border-top: 100px solid transparent;
+        border-left: 0 solid red;
+        border-bottom: 0 solid black;
+        border-right: 50px solid green;
+      }
+      .box6 {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-color: transparent red transparent transparent;
+        border-style: solid;
+        border-width: 20px 10px 0 0;
+      }
+      .practical {
+        position: absolute;
+        top: 0;
+        left: 20%;
+      }
+      pre {
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      .price {
+        position: absolute;
+        top: 50%;
+        left: 20%;
+        border: 1px solid red;
+        width: 200px;
+        height: 20px;
+        text-align: center;
+      }
+      .dicount {
+        position: relative;
+        float: left;
+        width: 70%;
+        height: 100%;
+        background-color: red;
+        color: #fff;
+        font-weight: 700;
+      }
+      .original {
+        float: right;
+        width: 30%;
+        height: 100%;
+        color: #888;
+        text-decoration:line-through;
+      }
+      i{
+        position: absolute;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-color: transparent white transparent transparent;
+        border-style: solid;
+        border-width: 20px 10px 0 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1"></div>
+    <p>原边框三角</p>
+    <div class="box2"></div>
+    <p>底边框设为0</p>
+    <div class="box3"></div>
+    <p>上边框加宽</p>
+    <div class="box4"></div>
+    <p>左边框设为0</p>
+    <div class="box5"></div>
+    <p>上边框透明</p>
+    <div class="practical">
+      <p>实用代码：</p>
+      <code>
+        <pre>
+  width: 0;
+  height: 0;
+  border-color: transparent red transparent transparent;
+  border-style: solid;
+  border-width: 20px 10px 0 0;</pre
+        >
+      </code>
+      <span>效果：</span>
+      <div class="box6"></div>
+    </div>
+    <div class="price">
+      <span class="dicount">￥2999<i></i></span>
+      <span class="original">￥3999</span>
+    </div>
+  </body>
+</html>

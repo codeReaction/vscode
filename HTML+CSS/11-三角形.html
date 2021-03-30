@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 原理：无大小盒子的边框是三角形 */
+      .box1 {
+        width: 0;
+        height: 0;
+        border-top: 100px solid pink;
+        border-left: 100px solid red;
+        border-bottom: 100px solid black;
+        border-right: 100px solid green;
+      }
+
+      /* 将其余边框设置为透明实现三角 */
+      .box2 {
+        width: 0;
+        height: 0;
+        border: 100px solid transparent;
+        border-top-color: skyblue;
+      }
+      .test {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: -200px;
+        width: 400px;
+        height: 600px;
+        background-color: green;
+      }
+      .main {
+        position: relative;
+        margin: auto;
+        width: 300px;
+        height: 150px;
+        background-color: black;
+      }
+      /* 鼠标移动到main时显示扩展内容father，两个盒子为同胞 */
+      /* 用相邻同胞选择器+或者通用同胞选择器~ */
+      .main:hover + .father {
+        display: block;
+      }
+      .father {
+        display: none;
+        position: relative;
+        top: 20px;
+        margin: auto;
+        width: 300px;
+        height: 400px;
+        background-color: pink;
+      }
+      .father span {
+        position: absolute;
+        left: 130px;
+        top: -40px;
+        width: 0;
+        height: 0;
+        /* 照顾兼容性 */
+        line-height: 0;
+        font-size: 0;
+
+        border: 20px solid transparent;
+        border-bottom-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1"></div>
+    <br />
+    <div class="box2"></div>
+
+    <div class="test">
+      <div class="main"></div>
+      <div class="father"><span></span></div>
+    </div>
+  </body>
+</html>
