@@ -21,15 +21,16 @@
     }
     .list {
       position: relative;
-      margin: -1px auto;
+      top: 100%;
+      margin: -1px 0 0 -1px;
       width: 200px;
       height: 0;
     }
     i {
       content: '';
       position: absolute;
-      top: 14%;
-      left: 58%;
+      top: 20%;
+      right: 5%;
       width: 10px;
       height: 10px;
       border-right: 1px solid black;
@@ -39,6 +40,7 @@
     }
     i:hover {
       transform: rotate(225deg);
+      top: 40%;
       transition: all 0.5s;
     }
     i:hover + .list {
@@ -49,8 +51,9 @@
     }
   </style>
   <body>
-    <div class="main"></div>
-    <i></i>
-    <div class="list"></div>
+    <div class="main">
+      <i></i>
+      <div class="list"></div>
+    </div>
   </body>
 </html>
