@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .txt{
+        overflow: hidden;
+        width: 0;
+        height: 30px;
+        line-height: 30px;
+        background-color: pink;
+        font-size: 20px;
+        animation: typer 6s steps(11) infinite;
+        /* 默认动画结束后回到初始状态，所以最后一个字动画太快会不显示 */
+        /* 添加forwards动画结束时保持结束状态 */
+        /* 但是如果有infinite循环播放动画，forwards没有效果，还是太快不显示 */
+        /* animation-fill-mode: forwards; */
+      }
+      .test{
+        overflow: hidden;
+        width: 0;
+        height: 30px;        
+        background-color: lightgreen;
+        font-size: 20px;
+        animation: typer2 6s steps(12) infinite;
+
+      }
+      .test2{
+        overflow: hidden;
+        white-space: nowrap;
+        width: 0;
+        height: 30px;        
+        background-color: lightgreen;
+        font-size: 20px;
+        animation: typer2 6s steps(12) infinite;
+
+      }
+
+      @keyframes typer {
+        /* 将完整显示字数的宽度定在80%,实现保持动画状态一段时间 */
+        80% {
+          /* 总宽度是字宽20px乘以字数11 */
+          width: 220px;
+        }
+
+        100%{
+          width: 220px;
+        }
+      }
+      @keyframes typer2 {
+        80% {
+          /* 总宽度是字宽20px乘以字数12 */
+          width: 240px;
+        }
+
+        100%{
+          width: 240px;
+        }
+      }
+
+      .ruler1{
+        width: 220px;
+        height: 30px;
+        background-color: lightblue;
+      }
+      .ruler2{
+        width: 240px;
+        height: 30px;
+        background-color: lightblue;
+
+      }
+    </style>
+  </head>
+  <body>
+    <pre>
+      .txt{
+      overflow: hidden;
+      width: 0;
+      height: 30px;
+      line-height: 30px;
+      background-color: pink;
+      font-size: 20px;
+      animation: typer 6s steps(11) infinite;
+      /* 默认动画结束后回到初始状态，所以最后一个字动画太快会不显示 */
+      /* 添加forwards动画结束时保持结束状态 */
+      /* 但是如果有infinite循环播放动画，forwards没有效果，还是太快不显示 */
+      /* animation-fill-mode: forwards; */
+    }
+    **********************
+    @keyframes typer {
+      /* 将完整显示字数的宽度定在80%,实现保持字数显示结束时的状态一段时间 */
+      80% {
+        /* 总宽度是字宽20px乘以字数11 */
+        width: 220px;
+      }
+
+      100%{
+        width: 220px;
+      }
+    }
+
+</pre>
+    <div class='txt'>为世界上所有的美好而战</div>
+    <div class="ruler1">我是220px宽</div>
+    <p>中文感叹号占一个字符20px，但会和最后一个字连体，即使step宽度够，最后一个字也不会先从下一行跳到第一行</p>
+    <p>也可以理解为（下一行）不允许标点符号开头</p>
+    <div class="ruler2">我是240px宽</div>
+    <div class="test">为世界上所有的美好而战！</div>
+    <p>使文字强制一行显示white-space:nowrap</p>
+    <div class="test2">为世界上所有的美好而战！</div>
+
+  </body>
+</html>

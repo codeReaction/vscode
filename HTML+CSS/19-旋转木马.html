@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        perspective: 800px;
+      }
+      .carousel {
+        position: relative;
+        transform-style: preserve-3d;
+        width: 150px;
+        height: 150px;
+        margin: 100px auto;
+        animation: rotate 10s linear infinite;
+      }
+      .carousel:hover {
+        /* 整体添加hover来暂停动画，离开继续动画
+        因为每个子盒是写在父盒内的，所以子盒位移后只有自身算父盒区域，子盒之间的空区不会触发hover
+        父盒的margin区域也不会触发hover 
+        不需要用js来对子盒添加监听以实现控制父盒*/
+        animation-play-state: paused;
+      }
+      @keyframes rotate {
+        100% {
+          transform: rotateY(360deg);
+        }
+      }
+      .carousel div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .horse1 {
+        transform: translateZ(300px);
+      }
+      .horse2 {
+        /* 先y旋转，再z平移，比先x,z平移再y旋转方便 */
+        transform: rotateY(60deg) translateZ(300px);
+      }
+      .horse3 {
+        transform: rotateY(120deg) translateZ(300px);
+      }
+      .horse4 {
+        transform: rotateY(180deg) translateZ(300px);
+      }
+      .horse5 {
+        transform: rotateY(240deg) translateZ(300px);
+      }
+      .horse6 {
+        transform: rotateY(300deg) translateZ(300px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="carousel">
+      <div class="horse1"></div>
+      <div class="horse2"></div>
+      <div class="horse3"></div>
+      <div class="horse4"></div>
+      <div class="horse5"></div>
+      <div class="horse6"></div>
+    </div>
+    <script>
+      var horses = document.querySelectorAll('.carousel div')
+      var overall = document.querySelector('.carousel')
+      for (let i = 0; i < horses.length; i++) {
+        // 批量添加背景并设置属性
+        horses[i].style.backgroundImage = 'url(image/honkai/' + i + '.jpg)'
+        horses[i].style.backgroundSize = '100% 100%'
+        horses[i].style.backgroundRepeat = 'no-repeat'
+        //设置事件监听，鼠标放上暂停动画，鼠标离开继续动画
+        // 直接在子盒添加:hover即可，不需要js实现
+        // horses[i].addEventListener('mouseenter', () => {
+        //   overall.style.animationPlayState = 'paused'
+        // })
+        // horses[i].addEventListener('mouseleave', () => {
+        //   overall.style.animationPlayState = 'running'
+        // })
+      }
+      horses
+    </script>
+  </body>
+</html>

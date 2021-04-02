@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .map {
+        position: relative;
+        width: 1000px;
+        height: 562px;
+        background: url(image/map.jpg) no-repeat;
+        margin: 0 auto;
+      }
+      .city {
+        position: absolute;
+        top: 200px;
+        right: 180px;
+        /* background-color: red; */
+      }
+      .city2 {
+        position: absolute;
+        top: 200px;
+        left: 250px;
+        /* background-color: red; */
+      }
+      .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: red;
+      }
+      div[class^='pulse'] {
+        /* 使波纹居中 */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 6px;
+        height: 6px;
+        box-shadow: 0 0 10px red;
+        border-radius: 50%;
+
+        animation: pulse 1.2s linear infinite;
+      }
+      div.pulse2 {
+        animation-delay: 0.4s;
+      }
+      div.pulse3 {
+        animation-delay: 0.8s;
+      }
+      @keyframes pulse {
+        70% {
+          /* 用宽高实现放大，不用scale，因为scale会同时放大阴影 */
+          width: 30px;
+          height: 30px;
+          opacity: 1;
+        }
+        100% {
+          width: 50px;
+          height: 50px;
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="map">
+      <div class="city">
+        <div class="dot"></div>
+        <div class="pulse1"></div>
+        <div class="pulse2"></div>
+        <div class="pulse3"></div>
+      </div>
+      <div class="city2">
+        <div class="dot"></div>
+        <div class="pulse1"></div>
+        <div class="pulse2"></div>
+        <div class="pulse3"></div>
+      </div>
+    </div>
+  </body>
+</html>
